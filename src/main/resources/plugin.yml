@@ -1,0 +1,14 @@
+name: ${name}
+main: com.feildmaster.superlockpick.PickAxe
+version: ${version}
+author: feildmaster
+
+permissions:
+  can.pick.reload:
+    default: op
+  can.pick.locks:
+    default: op
+
+commands:
+  slp:
+    description: Stuff

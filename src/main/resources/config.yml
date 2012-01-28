@@ -1,0 +1,19 @@
+# pickable:
+#   items: items that can be picked
+#   percent: The chance of success
+#   damage: damage taken on failure
+# general:
+#   item: Item necissary to pick
+#   use-item: use item after picking lock?
+#   success: Message sent on success
+#   fail: message sent on failure
+
+pickable:
+  items: [54, 64]
+  percent: 5
+  damage: 0
+general:
+  item: 265
+  use-item: false
+  success: 'You managed to pick the lock!'
+  fail: 'You have failed.'
