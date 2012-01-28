@@ -41,10 +41,12 @@ public class Pix implements Listener {
 
         if (plugin.getConfig().getBoolean("general.use-item")) {
             ItemStack i = event.getPlayer().getItemInHand();
-            if (i.getAmount() != 1) {
-                i.setAmount(1);
+            if (i.getAmount() == 1) {
+                event.getPlayer().getInventory().remove(i);
+            } else {
+                i.setAmount(i.getAmount()-1);
             }
-            event.getPlayer().getInventory().remove(i);
+            
         }
     }
 }
