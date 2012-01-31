@@ -19,6 +19,9 @@ public class Pix implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void pickLocks(PlayerInteractEvent event) {
+        if(plugin.getConfig().getList("pickable.items").contains(event.getClickedBlock().getTypeId())) {
+            event.setCancelled(true);
+        }
         if (!event.isCancelled() || // Is event canceled?
                 !event.getPlayer().hasPermission("can.pick.locks") || // Can player pick locks?
                 (event.getAction() != Action.LEFT_CLICK_BLOCK && event.getAction() != Action.RIGHT_CLICK_BLOCK) || // Are they right clicking a block?
@@ -42,7 +45,7 @@ public class Pix implements Listener {
         if (plugin.getConfig().getBoolean("general.use-item")) {
             ItemStack i = event.getPlayer().getItemInHand();
             if (i.getAmount() == 1) {
-                event.getPlayer().getInventory().remove(i);
+                event.getPlayer().getInventory().setItemInHand(null);
             } else {
                 i.setAmount(i.getAmount()-1);
             }
