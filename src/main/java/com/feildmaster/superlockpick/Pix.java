@@ -19,6 +19,9 @@ public class Pix implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void pickLocks(PlayerInteractEvent event) {
+        if(event.getClickedBlock() == null || event.getPlayer() == null) { // Null chex for annoying custom events
+            return;
+        }
         if(plugin.getConfig().getList("pickable.items").contains(event.getClickedBlock().getTypeId())) {
             event.setCancelled(true);
         }
