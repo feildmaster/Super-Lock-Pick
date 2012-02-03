@@ -22,9 +22,9 @@ public class Pix implements Listener {
         if(event.getClickedBlock() == null || event.getPlayer() == null) { // Null chex for annoying custom events
             return;
         }
-        if(plugin.getConfig().getList("pickable.items").contains(event.getClickedBlock().getTypeId())) {
-            event.setCancelled(true);
-        }
+//        if(plugin.getConfig().getList("pickable.items").contains(event.getClickedBlock().getTypeId())) {
+//            event.setCancelled(true);
+//        }
         if (!event.isCancelled() || // Is event canceled?
                 !event.getPlayer().hasPermission("can.pick.locks") || // Can player pick locks?
                 (event.getAction() != Action.LEFT_CLICK_BLOCK && event.getAction() != Action.RIGHT_CLICK_BLOCK) || // Are they right clicking a block?
