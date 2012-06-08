@@ -38,11 +38,11 @@ public class Pix implements Listener {
         }
 
         if (r.nextInt(100) < plugin.getConfig().getInt("pickable.percent")) {
-            event.getPlayer().sendMessage(plugin.getConfig().getString("general.fail"));
-            event.getPlayer().damage(plugin.getConfig().getInt("pickable.damage"));
-        } else {
             event.getPlayer().sendMessage(plugin.getConfig().getString("general.success"));
             event.setCancelled(false);
+        } else {
+            event.getPlayer().sendMessage(plugin.getConfig().getString("general.fail"));
+            event.getPlayer().damage(plugin.getConfig().getInt("pickable.damage"));
         }
 
         if (plugin.getConfig().getBoolean("general.use-item")) {
@@ -52,7 +52,7 @@ public class Pix implements Listener {
             } else {
                 i.setAmount(i.getAmount()-1);
             }
-            
+
         }
     }
 }
